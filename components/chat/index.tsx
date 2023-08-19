@@ -18,11 +18,13 @@ export interface ChatGPInstance {
 }
 
 const postChatOrQuestion = async (chat: Chat, messages: any[], input: string) => {
-  const url = chat.persona?.key ? '/api/document/question' : '/api/chat'
+  // const url = chat.persona?.key ? '/api/document/question' : '/api/chat'
 
-  console.log('#########')
-  console.log(url)
-  console.log(chat.persona)
+  const url = chat.persona?.key ? '/api/document/question' : '/api/advancer_chat'
+
+  // console.log('#########')
+  // console.log(url)
+  // console.log(chat.persona)
 
   const data = chat.persona?.key
     ? {
@@ -35,13 +37,23 @@ const postChatOrQuestion = async (chat: Chat, messages: any[], input: string) =>
         messages: [...messages!],
         input
       }
-  return await fetch(url, {
+
+  console.log('data')
+  console.log(data)
+
+  const response = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
   })
+
+  console.log('HASIDHAISDHIAHISDHIAHISDHIIH')
+  console.log('response')
+  console.log(response)
+  console.log(JSON.stringify(response))
+  return response
 }
 
 const Chat = (props: ChatProps, ref: any) => {
@@ -144,7 +156,7 @@ const Chat = (props: ChatProps, ref: any) => {
     if (bottomOfChatRef.current) {
       bottomOfChatRef.current.scrollIntoView({ behavior: 'smooth' })
     }
-    console.log(currentMessage)
+    // console.log(currentMessage)
   }, [conversation, currentMessage])
 
   useEffect(() => {
