@@ -15,9 +15,9 @@ const Message = (props: MessageProps) => {
 
   return (
     <div
-      className={`group w-full text-gray-800 dark:text-gray-100 border-b border-black/10 bg-white`}
+      className={`group w-full text-gray-800 dark:text-gray-100 border-b border-black/10 bg-white border-green-400 border-2 grid grid-cols-12 divide-x divide-gray-200`}
     >
-      <div className="text-sm gap-4 md:gap-6 flex lg:px-4 w-full p-4">
+      <div className="text-sm gap-4 md:gap-6 flex lg:px-4 w-full p-4 col-span-8">
         <div
           className={cs(
             `relative h-7 w-7 rounded-sm text-white flex items-center justify-center text-opacity-100r`,
@@ -30,6 +30,7 @@ const Message = (props: MessageProps) => {
           <Markdown content={content} />
         </div>
       </div>
+      <div className="text-sm gap-4 md:gap-6 flex lg:px-4 w-full p-4 col-span-4">also me</div>
     </div>
   )
 }

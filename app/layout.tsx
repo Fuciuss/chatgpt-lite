@@ -11,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <title>ChatGPT Lite</title>
+        <title>Advancer GPT</title>
         <meta name="description" content="AI assistant powered by ChatGPT" />
         <meta
           name="viewport"

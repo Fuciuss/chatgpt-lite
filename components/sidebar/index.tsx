@@ -9,7 +9,9 @@ import {
   List,
   ListItem,
   ListItemSuffix,
-  IconButton
+  IconButton,
+  Select,
+  Option
 } from '@material-tailwind/react'
 
 import cs from 'clsx'
@@ -30,6 +32,17 @@ const Sidebar = () => {
     <>
       <Card className="h-full flex-1 items-start rounded-none shadow-xl  border-r  border-gray-300 shadow-blue-gray-900">
         <List className="w-full overflow-auto gap-3">
+          {/* <ListItem> */}
+          {/* <Typography className="text-center flex-1 text-sm  text-green-500">
+              ChatGPT Model
+            </Typography> */}
+          <div className="mt-10 mx-4">
+            <Select variant="static" label="Select Version" value="gpt-3.5-turbo">
+              <Option>gpt-3.5-turbo</Option>
+              <Option>gpt-4</Option>
+            </Select>
+          </div>
+          {/* </ListItem> */}
           <ListItem
             className="border border-dashed border-green-300 rounded-sm py-2 items-center hover:bg-white active:bg-white hover:border-green-400 "
             onClick={() => {
@@ -69,6 +82,9 @@ const Sidebar = () => {
               </ListItemSuffix>
             </ListItem>
           ))}
+          <ListItem>
+            <Typography className="flex-1 text-s mt-6">Documents Indexed</Typography>
+          </ListItem>
         </List>
         <List className="w-full mt-auto">
           <hr />

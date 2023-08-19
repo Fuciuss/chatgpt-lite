@@ -20,6 +20,10 @@ export interface ChatGPInstance {
 const postChatOrQuestion = async (chat: Chat, messages: any[], input: string) => {
   const url = chat.persona?.key ? '/api/document/question' : '/api/chat'
 
+  console.log('#########')
+  console.log(url)
+  console.log(chat.persona)
+
   const data = chat.persona?.key
     ? {
         key: chat.persona?.key,
@@ -171,16 +175,23 @@ const Chat = (props: ChatProps, ref: any) => {
   })
 
   return (
-    <div className="flex relative max-w-full flex-1 flex-col h-full bg-gray-100">
+    <div className="flex relative max-w-full flex-1 flex-col h-full bg-gray-100 border-2 border-red-800">
+      {/* HEADING */}
       <div className="flex w-full items-center justify-center gap-1 border-b border-black/10 bg-gray-50 p-3 text-blue-gray-900">
-        {currentChat?.persona?.name}
+        {currentChat?.persona?.name} - title
         {isLoading && <Spinner color="blue" />}
       </div>
+      <div className="grid grid-cols-12 border border-gray-500 p-3">
+        <div className="text-center col-span-8">chat</div>
+        <div className="text-center col-span-4">vectors</div>
+      </div>
+      {/* MESSAGE AREA */}
       <div className="flex-1 overflow-auto">
         {conversation?.map((item, index) => <Message key={index} message={item} />)}
         {currentMessage && <Message message={{ content: currentMessage, role: 'assistant' }} />}
         <div ref={bottomOfChatRef}></div>
       </div>
+      {/* BOTTOM CHAT */}
       <div className="w-full border-t bg-white p-2">
         <div className="flex flex-row items-center w-full p-2 border-t gap-2 px-4 py-2 border border-black/10 bg-white rounded-md">
           <textarea
