@@ -6,6 +6,7 @@ const ChatContext = createContext<{
   currentChat?: Chat
   chatList: Chat[]
   personas: Persona[]
+  model: string
   isOpenPersonaModal?: boolean
   editPersona?: Persona
   personaModalLoading?: boolean

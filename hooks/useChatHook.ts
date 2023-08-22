@@ -28,6 +28,9 @@ const uploadFiles = async (files: File[]) => {
 let isInit = false
 
 const useChatHook = () => {
+
+  const [model, setModel] = useState<string>('gpt-3.5-turbo')
+
   const messagesMap = useRef<Map<string, ChatMessage[]>>(new Map<string, ChatMessage[]>())
 
   const chatRef = useRef<ChatGPInstance>(null)

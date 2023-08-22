@@ -13,6 +13,9 @@ import PromptPanel from '@/components/personaPanel'
 export default function Home() {
   const provider = useChatHook()
 
+  console.log('provider!!!!!!!!')
+  console.log(provider)
+
   const [isComponentVisible, setIsComponentVisible] = useState(false)
 
   const toggleComponentVisibility = () => {

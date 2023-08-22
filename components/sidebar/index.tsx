@@ -37,7 +37,15 @@ const Sidebar = () => {
               ChatGPT Model
             </Typography> */}
           <div className="mt-10 mx-4">
-            <Select variant="static" label="Select Version" value="gpt-3.5-turbo">
+            <Select
+              variant="static"
+              label="Select Version"
+              value="gpt-3.5-turbo"
+              onChange={(event) => {
+                console.log('event')
+                console.log(event)
+              }}
+            >
               <Option>gpt-3.5-turbo</Option>
               <Option>gpt-4</Option>
             </Select>

@@ -49,15 +49,14 @@ const postChatOrQuestion = async (chat: Chat, messages: any[], input: string) =>
     body: JSON.stringify(data)
   })
 
-  console.log('HASIDHAISDHIAHISDHIAHISDHIIH')
-  console.log('response')
-  console.log(response)
-  console.log(JSON.stringify(response))
   return response
 }
 
 const Chat = (props: ChatProps, ref: any) => {
   const { currentChat, saveMessages } = useContext(ChatContext)
+
+  console.log('currentChat')
+  console.log(currentChat)
 
   const [isLoading, setIsLoading] = useState(false)
 
